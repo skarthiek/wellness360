@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Your Health Results</h2>
+    <div class="container">
+        <p><strong>Name:</strong> {{ data['name'] }}</p>
+        <p><strong>Weight:</strong> {{ data['weight'] }} kg</p>
+        <p><strong>Height:</strong> {{ data['height'] }} cm</p>
+        <p><strong>BMI:</strong> {{ data['BMI'] }}</p>
+        <p><strong>Glucose Level:</strong> {{ data['glucose'] }} mg/dL</p>
+        <p><strong>Diabetes Result:</strong> {{ data['diabetes_result'] }}</p>
+        <p><strong>Systolic BP:</strong> {{ data['systolic_bp'] }} mm Hg</p>
+        <p><strong>Diastolic BP:</strong> {{ data['diastolic_bp'] }} mm Hg</p>
+        <p><strong>Blood Pressure Result:</strong> {{ data['bp_result'] }}</p>
+        <p><strong>Vegetarian:</strong> {{ 'Yes' if data['is_vegetarian'] else 'No' }}</p>
+        <p><strong>Workout Suggestion:</strong> {{ data['workout_suggestion'] }}</p>
+        <p><strong>Diet Plan:</strong> {{ data['diet_plan'] }}</p>
+        <h3>Recipes:</h3>
+        {% for item, recipe in data['recipes'].items() %}
+            <p><strong>{{ item }}:</strong><br>{{ recipe }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
