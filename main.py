@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from pymongo import MongoClient
 import datetime
-
+  
 app = Flask(__name__)
 app.secret_key = "secret_key"  # Secret key for session management
 
